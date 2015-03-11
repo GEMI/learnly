@@ -1,0 +1,7 @@
+{
+  "version": "0.0.3",
+  "description": "Learnly. Using Flux and React",
+  "main": "js/app.js",
+  "name": "my-package",
+	"browserify": {"transform": ["reactify"]}
+}
