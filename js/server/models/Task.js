@@ -10,18 +10,6 @@ var TaskSchema = new mongoose.Schema({
     updated_at: { type: Date, default: Date.now }
 });
 
-var Task = mongoose.model('Task', TaskSchema);
-
-var task = new Task({name: 'Master NodeJS', completed: false, note: 'Getting there...'});
-
-task.save(function(err){
-    if(err)
-        console.log(err);
-    else
-        console.log("Veikia");
-    console.log(task);
-});
-
 // Create a static getTweets method to return tweet data from the db
 TaskSchema.statics.getTodos = function(page, skip, callback) {
 
@@ -46,5 +34,4 @@ TaskSchema.statics.getTodos = function(page, skip, callback) {
 
 };
 
-// Return a Tweet model based upon the defined schema
 module.exports = Task = mongoose.model('Task', TaskSchema);

@@ -49,8 +49,11 @@ You must have [npm](https://www.npmjs.org/) installed on your computer.
 
 To build the project run this command:
 
-    browserify -t reactify js/app.js -o js/bundle.js
-    nodemon server.js
+    build JSX files:   browserify -t reactify js/app.js -o js/bundle.js
+
+    start mongo Server,wherever its installed:  C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe
+
+    start node monitor:  nodemon server.js
 
 ## Credit
 
