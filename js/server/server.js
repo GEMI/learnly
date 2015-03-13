@@ -4,10 +4,11 @@ var express = require('express'),
     http = require('http'),
     mongoose = require('mongoose'),
     path = require('path'),
-    Task = require('./models/Task'),
-    streamHandler = require('./utils/streamHandler');
+    Task = require('./models/Task');
+    require("node-jsx").install();
+var React = require('react');
+var ReactApp = React.createFactory(require('../components/Index.react').ReactApp);
 
-// Create an express instance and set a port variable
 var app = express();
 var port = process.env.PORT || 3001;
 
@@ -29,9 +30,9 @@ var io = require('socket.io').listen(server);
 app.use('/css', express.static(path.resolve(__dirname + '/../../css')));
 app.use('/js', express.static(path.resolve(__dirname + '/../../js')));
 
-app.get('/', function (req, res) {
-    var newPath = path.resolve(__dirname + '/../../index.html');
-    res.sendFile(newPath);
+app.get('/', function(req, res){
+    var reactHtml = React.renderToString(ReactApp({}));
+    res.render('index.ejs', {reactOutput: reactHtml});
 });
 
 app.get('/todos/:id', function (req, res) {
@@ -47,8 +48,10 @@ app.get('/todos/:id', function (req, res) {
     });
 
     Task.getTodos(1, 1, function(err, todo){
-        console.log(todo);
-        if(err) res.send(err);
-        res.json(todo);
+        if(err) {
+            res.send(err);
+        } else {
+            res.json(todo);
+        }
     });
 });

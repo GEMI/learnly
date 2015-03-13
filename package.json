@@ -1,7 +1,16 @@
 {
   "version": "0.0.3",
   "description": "Learnly. Using Flux and React",
-  "main": "js/app.js",
+  "main": "server.js",
   "name": "my-package",
-	"browserify": {"transform": ["reactify"]}
+  "browserify": {"transform": ["reactify"]},
+  "devDependencies": {
+    "browserify": "~3.20.0",
+    "gulp": "~3.8.9",
+    "gulp-browserify": "~0.5.0",
+    "gulp-concat": "~2.4.1",
+    "node-jsx": "~0.2.0",
+    "react-tools": "^0.12.0",
+    "reactify": "0.15.2"
+  }
 }
