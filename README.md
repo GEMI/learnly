@@ -4,7 +4,7 @@
 
 ## Overview
 
-This application is based on Flux architecture and ReactTodo.API.js and was created for educational purposes :)
+This application is based on Flux architecture and React.js and was created for educational purposes :)
  
 ## Implementation
 
@@ -15,32 +15,32 @@ Structure of this application is the following
   index.html
   js/
     actions/
-      TodoActionsTodo.API.js
-    appTodo.API.js
-    bundleTodo.API.js
+      TodoActions.js
+    app.js
+    bundle.js
     dispatcher/
-      AppDispatcherTodo.API.js
-      DispatcherTodo.API.js
+      AppDispatcher.js
+      Dispatcher.js
     components/
-      Footer.reactTodo.API.js
-      Header.reactTodo.API.js
-      MainSection.reactTodo.API.js
-      TodoApp.reactTodo.API.js
-      TodoItem.reactTodo.API.js
-      TodoTextInput.reactTodo.API.js
+      Footer.react.js
+      Header.react.js
+      MainSection.react.js
+      TodoApp.react.js
+      TodoItem.react.js
+      TodoTextInput.react.js
     stores/
-      TodoStoreTodo.API.js
+      TodoStore.js
 </pre>
 
-The primary entry point into the application is appTodo.API.js.  This file bootstraps the React rendering inside of index.html.  TodoApp.reactTodo.API.js is our controller-view and it passes all data down into its child React components.
+The primary entry point into the application is app.js.  This file bootstraps the React rendering inside of index.html.  TodoApp.react.js is our controller-view and it passes all data down into its child React components.
 
-TodoActionsTodo.API.js is a collection of action creator methods that views may call from within their event handlers, in response to user interactions.  They are nothing more than helpers that call into the AppDispatcher.
+TodoActions.js is a collection of action creator methods that views may call from within their event handlers, in response to user interactions.  They are nothing more than helpers that call into the AppDispatcher.
 
-DispatcherTodo.API.js is a base class for AppDispatcherTodo.API.js which extends it with a small amount of application-specific code.
+Dispatcher.js is a base class for AppDispatcher.js which extends it with a small amount of application-specific code.
 
-TodoStoreTodo.API.js is our only store.  It provides all of the application logic and in-memory storage.  Based on EventEmitter from NodeTodo.API.js, it emits "change" events after responding to actions in the callback it registers with the dispatcher.
+TodoStore.js is our only store.  It provides all of the application logic and in-memory storage.  Based on EventEmitter from Node.js, it emits "change" events after responding to actions in the callback it registers with the dispatcher.
 
-The bundleTodo.API.js file is automatically genenerated by the build process, explained below.
+The bundle.js file is automatically genenerated by the build process, explained below.
 
 
 ## Running
@@ -49,11 +49,11 @@ You must have [npm](https://www.npmjs.org/) installed on your computer.
 
 To build the project run this command:
 
-    build JSX files:   browserify -t reactify js/appTodo.API.js -o js/bundleTodo.API.js
+    build JSX files:   browserify -t reactify js/app.js -o js/bundle.js
 
     start mongo Server,wherever its installed:  C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe
 
-    start node monitor:  nodemon serverTodo.API.js
+    start node monitor:  nodemon server.js
 
 ## Credit
 
