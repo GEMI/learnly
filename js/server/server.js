@@ -7,7 +7,7 @@ var express = require('express'),
     Task = require('./models/Task');
     require("node-jsx").install();
 var React = require('react');
-var ReactApp = React.createFactory(require('../components/TodoApp.react').ReactApp);
+//var ReactApp = React.createFactory(require('../components/TodoApp.react').ReactApp);
 
 var app = express();
 var port = process.env.PORT || 3001;
@@ -18,7 +18,7 @@ app.set('view engine', 'handlebars');
 app.disable('etag');
 
 // Connect to our mongo database
-mongoose.connect('mongodb://localhost/react-tweets');
+mongoose.connect('mongodb://localhost/learnly');
 
 var server = http.createServer(app).listen(port, function() {
     console.log('Express server listening on port ' + port);
@@ -33,13 +33,13 @@ app.use('/js', express.static(path.resolve(__dirname + '/../../js')));
 createDummyData();
 
 app.get('/', function(req, res){
-    var reactHtml = React.renderToString(ReactApp({}));
-    res.render('index.html', {reactOutput: reactHtml});
+    //var reactHtml = React.renderToString(ReactApp({}));
+    //res.render('index.html', {reactOutput: reactHtml});
 });
 
 app.get('/todos/:id', function (req, res) {
 
-    Task.getTodos(1, 1, function(err, todo){
+    Task.getTodos(function(err, todo){
         if(err) {
             res.send(err);
         } else {
