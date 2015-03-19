@@ -5,16 +5,12 @@ var express = require('express'),
     mongoose = require('mongoose'),
     path = require('path'),
     Task = require('./models/Task');
-    require("node-jsx").install();
-var React = require('react');
-//var ReactApp = React.createFactory(require('../components/TodoApp.react').ReactApp);
 
 var app = express();
 var port = process.env.PORT || 3001;
 
-app.engine('handlebars', exphbs({ defaultLayout: 'main'}));
+app.engine('handlebars', exphbs({ defaultLayout: 'index'}));
 app.set('view engine', 'handlebars');
-
 app.disable('etag');
 
 // Connect to our mongo database
@@ -33,8 +29,7 @@ app.use('/js', express.static(path.resolve(__dirname + '/../../js')));
 createDummyData();
 
 app.get('/', function(req, res){
-    //var reactHtml = React.renderToString(ReactApp({}));
-    //res.render('index.html', {reactOutput: reactHtml});
+    res.render('layouts/index');
 });
 
 app.get('/todos/:id', function (req, res) {
