@@ -1,13 +1,13 @@
-/**
- * Copyright (c) 2014, Facebook, Inc.
- * All rights reserved.
- *
- * This source code is licensed under the BSD-style license found in the
- * LICENSE file in the root directory of this source tree. An additional grant
- * of patent rights can be found in the PATENTS file in the same directory.
- */
+(function(){
+    'use strict';
 
-React.render(
-  <TodoApp noSuchThing="TODO!!!" />,
-  document.getElementById('todoapp')
-);
+    React.render(
+        <TodoApp userPhoto={getPhoto()} source="http://localhost:3001/todos/1" />,
+        document.getElementById('todoApp')
+    );
+
+    function getPhoto(){
+        return "Gedas";
+    }
+
+})();

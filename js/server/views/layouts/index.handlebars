@@ -4,11 +4,33 @@
     <meta charset="utf-8">
     <title>Learnly</title>
     <link rel="stylesheet" href="../../../../css/app.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../../css/bootstrap-theme.min.css">
 </head>
 <body>
-    <section id="todoapp"></section>
+
+    <div class="container">
+        <header class="navbar navbar-static-top">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="">Home</a>
+                </li>
+                <li>
+                    <a href="">Settings</a>
+                </li>
+            </ul>
+        </header>
+        <div class="row">
+            <aside class="left-side col-md-3"></aside>
+            <aside class="right-side col-md-6">
+                <div id="todoApp"></div>
+            </aside>
+        </div>
+    </div>
+
     <script src="http://fb.me/react-0.13.1.js"></script>
     <script src="http://fb.me/JSXTransformer-0.13.1.js"></script>
+    <script src="js/vendor/jquery-2.1.3.js"></script>
     <script src="js/components/TodoApp.react.js" type="text/jsx"></script>
     <script src="js/app.js" type="text/jsx"></script>
 
