@@ -25,6 +25,8 @@ var io = require('socket.io').listen(server);
 
 app.use('/css', express.static(path.resolve(__dirname + '/../../css')));
 app.use('/js', express.static(path.resolve(__dirname + '/../../js')));
+app.use('/img', express.static(path.resolve(__dirname + '/../../img')));
+app.use('/fonts', express.static(path.resolve(__dirname + '/../../fonts')));
 
 createDummyData();
 
