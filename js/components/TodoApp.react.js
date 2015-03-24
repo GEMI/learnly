@@ -27,7 +27,7 @@ var TodoApp = React.createClass({
         return (
             <ul className="todo-list ui-sortable">
                 {this.state.todos.map(function (todo) {
-                    return <Todo username={todo.name} updatedDate={todo.updated_at} />;
+                    return <Todo username={todo.name} note={todo.note} updatedDate={todo.updated_at} />;
                 })}
             </ul>
         );
@@ -37,7 +37,8 @@ var TodoApp = React.createClass({
 var Todo = React.createClass({
     propTypes: {
         username: React.PropTypes.string,
-        updatedDate: React.PropTypes.string
+        updatedDate: React.PropTypes.string,
+        note: React.PropTypes.string
     },
 
     render: function () {
@@ -50,7 +51,10 @@ var Todo = React.createClass({
                 <div className="icheckbox_minimal" aria-checked="false" aria-disabled="false">
                     <input type="checkbox" value="" name=""/>
                 </div>
-                <span className="text">{this.props.username} {this.props.updatedDate}</span>
+                <p className="text">
+                    {this.props.username} - {this.props.note}
+                    <span> {this.props.updatedDate} </span>
+                </p>
                 <small className="label label-danger">
                     <i className="fa fa-clock-o"></i>
                     2 mins
