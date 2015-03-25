@@ -34,7 +34,6 @@ app.get('/', function(req, res){
 });
 
 app.get('/todos/:id', function (req, res) {
-
     Task.getTodos(function(err, todo){
         if(err) {
             res.send(err);
@@ -48,7 +47,7 @@ app.post('/todos/', function(req, res) {
     var task = new Task({name: 'User', completed: false, note: req.body.message});
     task.save(function(err){
         if(err) {
-            console.log(err);
+            console.log("Error!: ", err);
         } else {
             res.send("OK");
         }

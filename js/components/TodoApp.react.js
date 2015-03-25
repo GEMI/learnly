@@ -1,3 +1,6 @@
+var React = require('react');
+var TodoStore = require('../stores/TodoStore');
+
 var TodoApp = React.createClass({
     propTypes: {
         source: React.PropTypes.string,
@@ -13,6 +16,8 @@ var TodoApp = React.createClass({
     },
 
     componentDidMount: function () {
+        console.log("THIS THING WORKS!");
+        TodoStore.addChangeListener(this._onChange);
         $.get(this.props.source, function (result) {
             var todos = result;
             if (this.isMounted()) {
@@ -23,14 +28,23 @@ var TodoApp = React.createClass({
         }.bind(this));
     },
 
+    componentWillUnmount: function() {
+        TodoStore.removeChangeListener(this._onChange);
+    },
+
     render: function () {
         return (
             <ul className="todo-list ui-sortable">
                 {this.state.todos.map(function (todo) {
-                    return <Todo username={todo.name} note={todo.note} updatedDate={todo.updated_at} />;
+                    var updateDate = moment.parseZone(todo.updated_at).format("YYYY-MM-DD HH:mm");
+                    return <Todo username={todo.name} note={todo.note} updatedDate={updateDate} />;
                 })}
             </ul>
         );
+    },
+
+    _onChange: function() {
+        this.setState(getTodoState());
     }
 });
 
@@ -44,10 +58,6 @@ var Todo = React.createClass({
     render: function () {
         return (
             <li>
-                <span className="handle">
-                    <i className="fa fa-ellipsis-v"></i>
-                    <i className="fa fa-ellipsis-v"></i>
-                </span>
                 <div className="icheckbox_minimal" aria-checked="false" aria-disabled="false">
                     <input type="checkbox" value="" name=""/>
                 </div>
@@ -55,10 +65,6 @@ var Todo = React.createClass({
                     {this.props.username} - {this.props.note}
                     <span> {this.props.updatedDate} </span>
                 </p>
-                <small className="label label-danger">
-                    <i className="fa fa-clock-o"></i>
-                    2 mins
-                </small>
                 <div className="tools">
                     <i className="fa fa-edit"></i>
                     <i className="fa fa-trash-o"></i>
