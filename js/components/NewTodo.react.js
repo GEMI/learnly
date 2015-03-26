@@ -1,6 +1,6 @@
-/**
- * Created by Silky on 2015.03.24.
- */
+var React = require('react');
+var TodoActions = require('../actions/TodoActions');
+
 var NewTodo = React.createClass({
     getInitialState: function() {
         return {value: ''};
@@ -9,15 +9,7 @@ var NewTodo = React.createClass({
         this.setState({value: event.target.value});
     },
     saveComment: function () {
-        $.ajax({
-            type: "POST",
-            url: "/todos/",
-            data: {message: this.state.value},
-            success: function(result){
-                //TODO implement flux
-                //trigger app update
-            }
-        });
+        TodoActions.saveTodo(this.state.value);
     },
     render: function () {
         return (
@@ -32,3 +24,5 @@ var NewTodo = React.createClass({
         );
     }
 });
+
+module.exports = NewTodo;

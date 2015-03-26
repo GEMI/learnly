@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2015, Facebook, Inc.
+ * Copyright (c) 2014-2015, Facebook, Inc.
  * All rights reserved.
  *
  * This source code is licensed under the BSD-style license found in the
@@ -12,12 +12,11 @@
 var keyMirror = require('keymirror');
 
 module.exports = keyMirror({
-    TODO_INIT: null,
-    TODO_CREATE: null,
-    TODO_COMPLETE: null,
-    TODO_DESTROY: null,
-    TODO_DESTROY_COMPLETED: null,
-    TODO_TOGGLE_COMPLETE_ALL: null,
-    TODO_UNDO_COMPLETE: null,
-    TODO_UPDATE_TEXT: null
+  TODO_CREATE: null,
+  TODO_COMPLETE: null,
+  TODO_DESTROY: null,
+  TODO_DESTROY_COMPLETED: null,
+  TODO_TOGGLE_COMPLETE_ALL: null,
+  TODO_UNDO_COMPLETE: null,
+  TODO_UPDATE_TEXT: null
 });
