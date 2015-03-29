@@ -1,4 +1,5 @@
 var React = require('react');
+var Todo = require('../components/Todo.react');
 var TodoStore = require('../stores/TodoStore');
 
 var TodoApp = React.createClass({
@@ -9,7 +10,6 @@ var TodoApp = React.createClass({
     },
 
     getInitialState: function () {
-        console.log("getInitialState !");
         return {
             todos: [],
             userPhoto: ""
@@ -17,16 +17,16 @@ var TodoApp = React.createClass({
     },
 
     componentDidMount: function () {
-        console.log("THIS THING WORKS!");
+        var that = this;
         TodoStore.addChangeListener(this._onChange);
         $.get(this.props.source, function (result) {
             var todos = result;
-            if (this.isMounted()) {
-                this.setState({
+            if (that.isMounted()) {
+                that.setState({
                     todos: todos
                 });
             }
-        }.bind(this));
+        });
     },
 
     componentWillUnmount: function() {
@@ -45,8 +45,10 @@ var TodoApp = React.createClass({
     },
 
     _onChange: function() {
-        this.setState(getTodoState());
+        //TODO update the component with new properties
+        this.forceUpdate();
     }
 });
+
 
 module.exports = TodoApp;

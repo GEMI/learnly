@@ -11,5 +11,3 @@ React.render(
     <NewTodo />,
     document.getElementById('commentPost')
 );
-
-console.log("Well this is lame");
