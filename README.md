@@ -8,31 +8,8 @@ This application is based on Flux architecture and React.js and was created for 
  
 ## Implementation
 
-Structure of this application is the following
 
-<pre>
-./
-  index.html
-  js/
-    actions/
-      TodoActions.js
-    app.js
-    bundle.js
-    dispatcher/
-      AppDispatcher.js
-      Dispatcher.js
-    components/
-      Footer.react.jsx
-      Header.react.jsx
-      MainSection.react.jsx
-      TodoApp.react.jsx
-      TodoItem.react.jsx
-      TodoTextInput.react.jsx
-    stores/
-      TodoStore.js
-</pre>
-
-The primary entry point into the application is app.js.  This file bootstraps the React rendering inside of index.html.  TodoApp.react.jsx is our controller-view and it passes all data down into its child React components.
+The primary entry point into the application is app.js.  This file bootstraps the React rendering inside of index.handlebars.  TodoApp.react.jsx is our controller-view and it passes all data down into its child React components.
 
 TodoActions.js is a collection of action creator methods that views may call from within their event handlers, in response to user interactions.  They are nothing more than helpers that call into the AppDispatcher.
 
@@ -49,11 +26,13 @@ You must have [npm](https://www.npmjs.org/) installed on your computer.
 
 To build the project run this command:
 
-    build JSX files:   browserify -t reactify js/app.js -o js/bundle.js
+    npm install
 
-    start mongo Server,wherever its installed:  C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe
+    Start mongo Server, wherever it's installed on your machine:  C:\Program Files\MongoDB\Server\3.0\bin\mongod.exe
 
-    start node monitor:  nodemon server.js
+    npm start
+
+    npm run start-server
 
 ## Credit
 
