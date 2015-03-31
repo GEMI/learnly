@@ -9,7 +9,6 @@ var NewTodo = React.createClass({
         this.setState({value: event.target.value});
     },
     saveComment: function () {
-        console.log("Saving: ", this.state.value);
         TodoActions.saveTodo(this.state.value);
     },
     render: function () {

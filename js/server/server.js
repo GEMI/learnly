@@ -16,7 +16,7 @@ var server = http.createServer(app).listen(port, function() {
     console.log('Express server listening on port ' + port);
 });
 
-var io = require('socket.io').listen(server);
+require('socket.io').listen(server);
 
 app.disable('etag');
 app.set('view engine', 'handlebars');

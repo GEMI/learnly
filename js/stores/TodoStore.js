@@ -185,7 +185,7 @@ AppDispatcher.register(function (action) {
             break;
 
         default:
-        // no op
+        console.log("TodoStore - This should not happen");
     }
 });
 

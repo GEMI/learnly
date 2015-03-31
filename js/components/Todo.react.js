@@ -4,14 +4,19 @@ var Todo = React.createClass({
     propTypes: {
         username: React.PropTypes.string,
         updatedDate: React.PropTypes.string,
-        note: React.PropTypes.string
+        note: React.PropTypes.string,
+        completed: React.PropTypes.bool,
+        onItemCheck: React.PropTypes.func
     },
-
     render: function () {
         return (
             <li>
                 <div className="icheckbox_minimal" aria-checked="false" aria-disabled="false">
-                    <input type="checkbox" value="" name=""/>
+                    <input type="checkbox"
+                        defaultChecked={this.props.completed}
+                        ref="complete"
+                        onChange={this.props.onItemCheck}
+                        value="" name=""/>
                 </div>
                 <p className="text">
                     {this.props.username} - {this.props.note}
